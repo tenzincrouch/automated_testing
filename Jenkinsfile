@@ -18,13 +18,8 @@ pipeline {
         stage('Test') {
              steps {
                 sh 'mvn test'
+                junit 'src/reports/*-jupiter.xml'
              }
         }
-
-        //post {
-        //    always {
-        //        junit '**/target/*.xml'
-        //    }
-        //}
     }
 }
