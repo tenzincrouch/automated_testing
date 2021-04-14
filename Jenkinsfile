@@ -21,10 +21,10 @@ pipeline {
              }
         }
 
-        post {
-            always {
-                junit '**/target/*.xml'
-            }
-        }
+        //post {
+        //    always {
+        //        junit '**/target/*.xml'
+        //    }
+        //}
     }
 }
