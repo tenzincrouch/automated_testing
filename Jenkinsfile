@@ -21,5 +21,13 @@ pipeline {
                 //junit '**/target/surefire-reports/TEST-*.xml'
              }
         }
+
+        stage('Static Analysis') {
+            steps{
+                withSonarQubeEnv(credentialsId: 'admin', installationName: 'local') {
+                    sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
+                }
+            }
+        }
     }
 }
