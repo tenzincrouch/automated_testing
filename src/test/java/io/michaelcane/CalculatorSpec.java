@@ -73,6 +73,16 @@ public class CalculatorSpec {
     }
 
     @Test
+    public void test$cube() {
+        /**
+         * This method should cube a value (double) provided by the user.
+         */
+        double expectedValue = 27;
+        double actualValue = calculator.cube(3);
+        assertEquals("This should evaluate to 27", expectedValue, actualValue, delta);
+    }
+
+    @Test
     public void test$squareRoot() {
         /**
          * This method should provide the square root of a value (double).
