@@ -8,7 +8,7 @@ public class User {
 
     public User(Commands commands){
         this.commands=commands;
-    };
+    }
 
     Commands commands;
     /**
