@@ -26,13 +26,9 @@ pipeline {
 
         stage('Static Analysis') {
             steps{
-//                 withSonarQubeEnv(credentialsId: 'sonarqube-id', installationName: 'local') {
-//                     sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
-//                 }
-                 sh 'mvn sonar:sonar \
-                          -Dsonar.projectKey=io.michaelcane:bestcalculator \
-                          -Dsonar.host.url=http://192.168.0.236:9000 \
-                          -Dsonar.login=9c9391b7bdfa00837a7adfd2ae879dbe890d123c'
+                withSonarQubeEnv(credentialsId: 'sonarqube-id', installationName: 'local') {
+                    sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
+                }
             }
         }
     }
