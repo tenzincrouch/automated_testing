@@ -6,7 +6,11 @@ import static java.lang.Double.parseDouble;
 
 public class User {
 
-    Commands commands = new Commands();
+    public User(Commands commands){
+        this.commands=commands;
+    };
+
+    Commands commands;
     /**
      * This is the Memory that can be Set, Recalled, and Cleared.
      */

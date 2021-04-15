@@ -2,11 +2,15 @@ package io.michaelcane;
 
 public class Commands {
 
-    Calculator calculator = new Calculator();
+    Calculator calculator;
     Display display = new Display();
-    User user = new User();
+    User user = new User(this);
 
     Command command;
+
+    public Commands(Calculator calc){
+        this.calculator=calc;
+    }
 
     public void giveCommand(Command command) {
         this.command = command;

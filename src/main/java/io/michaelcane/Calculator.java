@@ -3,7 +3,7 @@ package io.michaelcane;
 
 public class Calculator {
 
-    Commands commands = new Commands();
+    Commands commands = new Commands(this);
 
     /**
      * Failed to go over methods that require their return to be degrees or radians.
