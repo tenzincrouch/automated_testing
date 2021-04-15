@@ -19,8 +19,7 @@ pipeline {
              steps {
                 sh 'mvn test'
                 sh 'mvn surefire-report:report'
-
-                //junit '**/target/surefire-reports/TEST-*.html'
+                junit '**/target/surefire-reports/TEST-*.html'
              }
         }
 
@@ -30,6 +29,15 @@ pipeline {
                     sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
                 }
             }
+        }
+
+        stage('Report') {
+              steps {
+                sh 'mvn site'
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, includes: '**/*.html,**/*.css',
+                             keepAll: true, reportDir: 'target/site', reportFiles: 'index.html',
+                             reportName: 'Unit Testing Report', reportTitles: 'index.html'])
+              }
         }
     }
 }
