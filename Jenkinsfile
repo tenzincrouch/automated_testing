@@ -18,7 +18,6 @@ pipeline {
         stage('Test') {
              steps {
                 sh 'mvn test'
-                junit '**/target/surefire-reports/TEST-*.html'
              }
         }
 
@@ -30,7 +29,7 @@ pipeline {
             }
         }
 
-        stage('Report') {
+        stage('Reporting') {
               steps {
                 sh 'mvn site'
                 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, includes: '**/*.html,**/*.css',
