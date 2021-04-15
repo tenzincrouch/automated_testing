@@ -19,6 +19,7 @@ pipeline {
              steps {
                 sh 'mvn test'
                 sh 'mvn surefire-report:report'
+
                 //junit '**/target/surefire-reports/TEST-*.html'
              }
         }
