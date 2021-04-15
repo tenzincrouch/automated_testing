@@ -25,7 +25,7 @@ pipeline {
         stage('Static Analysis') {
             steps{
                 sh 'ls'
-                 withSonarQubeEnv(credentialsID: 'sonarqube-id'), installationName: 'local' {
+                 withSonarQubeEnv(credentialsID: 'sonarqube-id', installationName: 'local') {
                      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:4.6.0.2311:sonar'
                  }
             }
